@@ -1,0 +1,35 @@
+<!-- src/app/pages/pokemon-detail/pokemon-detail.page.html -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pokemon-list"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pokemon?.name | titlecase }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleFavorite()">
+        <ion-icon [name]="isFavorite() ? 'heart' : 'heart-outline'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="pokemon" class="ion-padding">
+  <!-- Sprites / imagens -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let pic of pictures">
+        <ion-card>
+          <img [src]="pic" [alt]="pokemon.name" />
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Descrições -->
+  <h2>Descriptions</h2>
+  <ion-list>
+    <ion-item *ngFor="let text of flavorTexts">
+      <ion-label>{{ text }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
