@@ -1,0 +1,1 @@
+# pokeapi-ionic-angular-challenge
